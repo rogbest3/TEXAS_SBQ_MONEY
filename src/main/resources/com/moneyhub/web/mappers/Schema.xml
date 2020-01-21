@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.moneyhub.web.mappers.SchemaMapper">
+	<select id="existRow" resultType="integer" parameterType="string">
+		SELECT count(*)
+		FROM
+		${value}
+	</select>
+
+	<select id="showCreateTable" resultType="map" parameterType="string">
+		show create table ${value}
+	</select> 
+
+	<update id="dropTable" parameterType="string">
+		DROP TABLE IF EXISTS ${value}
+	</update>
+
+	<update id="createNewDb" parameterType="string">
+		${value}
+	</update>
+
+</mapper>
